@@ -42,14 +42,14 @@ public class Taxi {
             return Integer.toString(minutes) + "m";
         }
         else if (days==0 && hours>0) {
-            if (minutes<10) return Integer.toString(hours) + "h0" + Integer.toString(minutes) + "m";
-            else return Integer.toString(hours) + "h" + Integer.toString(minutes) + "m";
+            if (minutes<10) return Integer.toString(hours) + "h 0" + Integer.toString(minutes) + "m";
+            else return Integer.toString(hours) + "h " + Integer.toString(minutes) + "m";
         }
         else if (days>0 && hours>0) {
-            if (minutes<10 && hours<10) return Integer.toString(days) + "d0" + Integer.toString(hours) + "h0" + Integer.toString(minutes) + "m";
-            else if (minutes<10 && hours>=10) return Integer.toString(days) + "d" + Integer.toString(hours) + "h0" + Integer.toString(minutes) + "m";
-            else if (minutes>=10 && hours<10) return Integer.toString(days) + "d0" + Integer.toString(hours) + "h" + Integer.toString(minutes) + "m";
-            else return Integer.toString(days) + "d" + Integer.toString(hours) + "h" + Integer.toString(minutes) + "m";
+            if (minutes<10 && hours<10) return Integer.toString(days) + "d 0" + Integer.toString(hours) + "h 0" + Integer.toString(minutes) + "m";
+            else if (minutes<10 && hours>=10) return Integer.toString(days) + "d " + Integer.toString(hours) + "h 0" + Integer.toString(minutes) + "m";
+            else if (minutes>=10 && hours<10) return Integer.toString(days) + "d 0" + Integer.toString(hours) + "h " + Integer.toString(minutes) + "m";
+            else return Integer.toString(days) + "d " + Integer.toString(hours) + "h " + Integer.toString(minutes) + "m";
         }
         else return "?m";
     }
