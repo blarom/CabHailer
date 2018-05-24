@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HereMobilityEHailingTest</string>
+    <string name="title">Cab Hailer</string>
+    <string name="from_title">From:</string>
+    <string name="from_chooser">Enter pickup location</string>
+    <string name="to_title">To:</string>
+    <string name="to_chooser">Enter your destination</string>
+    <string name="search_cabs_nearby">Search Cabs Nearby!</string>
+    <string name="default_text">defaultText</string>
+    <string name="default_minutes">0m</string>
+    <string name="cab_company_image">Cab Company Image</string>
+    <string name="origin">Origin</string>
+    <string name="destination">Destination</string>
+    <string name="arrow_right">Arrow Right</string>
+</resources>

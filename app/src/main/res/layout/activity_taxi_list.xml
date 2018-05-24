@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaxiListActivity">
+
+
+    <TextView
+        android:id="@+id/originTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/list_activity_margin"
+        android:layout_marginLeft="@dimen/list_activity_margin"
+        android:layout_marginRight="@dimen/list_activity_margin"
+        android:layout_marginStart="@dimen/list_activity_margin"
+        android:layout_marginTop="@dimen/list_activity_margin"
+        android:text="@string/default_text"
+        android:gravity="end"
+        android:textSize="@dimen/list_activity_textSize"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/destinationTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/list_activity_margin"
+        android:layout_marginLeft="@dimen/list_activity_margin"
+        android:layout_marginRight="@dimen/list_activity_margin"
+        android:layout_marginStart="@dimen/list_activity_margin"
+        android:layout_marginTop="@dimen/list_activity_margin"
+        android:text="@string/default_text"
+        android:gravity="start"
+        android:textSize="@dimen/list_activity_textSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/taxis_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/list_activity_margin"
+        android:layout_marginEnd="@dimen/list_activity_margin"
+        android:layout_marginLeft="@dimen/list_activity_margin"
+        android:layout_marginRight="@dimen/list_activity_margin"
+        android:layout_marginStart="@dimen/list_activity_margin"
+        android:layout_marginTop="@dimen/list_activity_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/list_activity_margin"
+        android:layout_marginRight="@dimen/list_activity_margin"
+        android:layout_marginTop="@dimen/list_activity_margin"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_chevron_right_black_24dp"
+        android:contentDescription="@string/arrow_right"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        />
+</android.support.constraint.ConstraintLayout>
