@@ -28,11 +28,18 @@ public class TaxiListActivity extends AppCompatActivity {
     private AvailableTaxisRecyclerViewAdapter mAvailableCabsRVAdapter;
     public List<Taxi> taxis;
     final Handler myHandler = new Handler();
+    private String mOrigin;
+    private String mDestination;
+    private TextView mOriginTV;
+    private TextView mDestinationTV;
 
     //Lifecycle methods
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taxi_list);
+
+        mOriginTV = findViewById(R.id.originTV);
+        mDestinationTV = findViewById(R.id.destinationTV);
 
         updateTextViews();
         populateTaxiList();
@@ -43,6 +50,18 @@ public class TaxiListActivity extends AppCompatActivity {
     @Override protected void onDestroy() {
         super.onDestroy();
         myHandler.removeCallbacks(myRunnable); //Prevents memory leaks
+    }
+    @Override protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(MainActivity.ORIGIN, mOrigin);
+        outState.putString(MainActivity.DESTINATION, mDestination);
+    }
+    @Override protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mOrigin = savedInstanceState.getString(MainActivity.ORIGIN);
+        mOriginTV.setText(mOrigin);
+        mDestination = savedInstanceState.getString(MainActivity.DESTINATION);
+        mDestinationTV.setText(mDestination);
     }
 
     //Functional methods
@@ -71,19 +90,17 @@ public class TaxiListActivity extends AppCompatActivity {
         }
     }
     private void updateTextViews() {
-        TextView origin = findViewById(R.id.originTV);
-        TextView destination = findViewById(R.id.destinationTV);
 
         Intent intent = getIntent();
         if (getIntent().hasExtra(MainActivity.ORIGIN)) {
-            String originString = intent.getStringExtra(MainActivity.ORIGIN);
-            if (TextUtils.isEmpty(originString)) origin.setText(R.string.origin);
-            else origin.setText(originString);
+            mOrigin = intent.getStringExtra(MainActivity.ORIGIN);
+            if (TextUtils.isEmpty(mOrigin)) mOriginTV.setText(R.string.origin);
+            else mOriginTV.setText(mOrigin);
         }
         if (getIntent().hasExtra(MainActivity.DESTINATION)) {
-            String destinationString = intent.getStringExtra(MainActivity.DESTINATION);
-            if (TextUtils.isEmpty(destinationString)) destination.setText(R.string.destination);
-            else destination.setText(destinationString);
+            mDestination = intent.getStringExtra(MainActivity.DESTINATION);
+            if (TextUtils.isEmpty(mDestination)) mDestinationTV.setText(R.string.destination);
+            else mDestinationTV.setText(mDestination);
         }
     }
     public int getRandomEtaMinutes() {
