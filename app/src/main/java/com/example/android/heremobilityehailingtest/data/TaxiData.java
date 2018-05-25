@@ -8,7 +8,7 @@ import java.util.Map;
 public class TaxiData {
     public static final int numberTaxis = 20;
     public static final String[] locations = new String[] {
-            "Namal","Azrieli","Ra'anana","Ashdod","Tel Aviv","Rishon LeZion","Givataim"
+            "Namal","Azrieli","Ra'anana","Ashdod","Tel Aviv","Rishon LeZion","Givataim","Jerusalem","Haifa"
     };
     public static final Map<String, Integer> recipeImagesMap = createStationImagesMap();
     private static Map<String, Integer> createStationImagesMap() {
